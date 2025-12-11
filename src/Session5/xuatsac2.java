@@ -6,9 +6,9 @@ public class xuatsac2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String name = null;
-        String[] arrStudent = new String[100];
-        int count = 0;
+        String[] arrStudent = new String[0];
         boolean isFoundWord = false;
+
         do {
             System.out.println("*********************************MENU*********************************");
             System.out.println("1. Them ten sinh vien");
@@ -24,13 +24,17 @@ public class xuatsac2 {
                 case 1:
                     System.out.print("Nhap ten sinh vien: ");
                     name = sc.nextLine();
-                    arrStudent[count] = name;
-                    count++;
+                    String[] newArrStudent = new String[arrStudent.length + 1];
+                    for (int i = 0; i < arrStudent.length; i++) {
+                        newArrStudent[i] = arrStudent[i];
+                    }
+                    newArrStudent[arrStudent.length] = name;
+                    arrStudent = newArrStudent;
                     System.out.println("Da them: " + name);
                     break;
                 case 2:
                     System.out.println("Danh sach sinh vien:");
-                    for (int i = 0; i < count; i++) {
+                    for (int i = 0; i < arrStudent.length; i++) {
                         System.out.printf("%d. %s \n", i + 1, arrStudent[i]);
                     }
                     break;
@@ -38,7 +42,7 @@ public class xuatsac2 {
                     System.out.print("Nhap tu khoa: ");
                     String word = sc.nextLine();
                     System.out.println("Ket qua tim kiem: ");
-                    for (int i = 0; i < count; i++) {
+                    for (int i = 0; i < arrStudent.length; i++) {
                         if (arrStudent[i].contains(word)) {
                             System.out.printf("- %s\n", arrStudent[i]);
                             isFoundWord = true;
@@ -52,7 +56,7 @@ public class xuatsac2 {
                     int countName = 0;
                     System.out.print("Nhap chu cai: ");
                     String findName = sc.nextLine();
-                    for (int i = 0; i < count; i++) {
+                    for (int i = 0; i < arrStudent.length; i++) {
                         if (arrStudent[i].startsWith(findName)) {
                             countName++;
                         }
@@ -60,8 +64,8 @@ public class xuatsac2 {
                     System.out.printf("So sinh vien co ten bat dau bang '%s': %d\n", findName, countName);
                     break;
                 case 5:
-                    for (int i = 0; i < count; i++) {
-                        for (int j = 0; j < count - i - 1; j++) {
+                    for (int i = 0; i < arrStudent.length; i++) {
+                        for (int j = 0; j < arrStudent.length - i - 1; j++) {
                             if (arrStudent[j].compareTo(arrStudent[j + 1]) > 0) {
                                 String tmp = arrStudent[j];
                                 arrStudent[j] = arrStudent[j + 1];

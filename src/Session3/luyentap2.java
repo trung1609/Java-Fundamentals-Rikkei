@@ -69,7 +69,3 @@ public class luyentap2 {
         while (true);
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ca66df8b784417ee9d231c9ac8283558e1f1c809
