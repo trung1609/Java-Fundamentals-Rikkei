@@ -1,5 +1,9 @@
 package Session3;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> ca66df8b784417ee9d231c9ac8283558e1f1c809
 import java.util.Scanner;
 
 public class luyentap3 {
@@ -7,7 +11,12 @@ public class luyentap3 {
         Scanner sc = new Scanner(System.in);
         double salary;
         int n = 1;
+<<<<<<< HEAD
         int count = 0;
+=======
+        ArrayList<Double> salaries = new ArrayList<>();
+
+>>>>>>> ca66df8b784417ee9d231c9ac8283558e1f1c809
         double sum = 0;
         double max = Double.MIN_VALUE;
         double min = Double.MAX_VALUE;
@@ -43,6 +52,7 @@ public class luyentap3 {
                         n++;
 
                         //Hien thi thong ke
+<<<<<<< HEAD
                         count++;
                         sum += salary;
                         if (salary > max) max = salary;
@@ -66,13 +76,46 @@ public class luyentap3 {
                         double avg = sum / count;
                         System.out.println("--- Thong ke ---");
                         System.out.println("So nhan vien:" + count);
+=======
+                        salaries.add(salary);
+
+                        sum += salary;
+                        if (salary > max) max = salary;
+                        if (salary < min) min = salary;
+                    }
+                    break;
+                case 2:
+                    if (salaries.isEmpty()) {
+                        System.out.println("Chua co du lieu");
+                    } else {
+                        double avg = sum / salaries.size();
+                        System.out.println("--- Thong ke ---");
+                        System.out.println("So nhan vien:" + salaries.size());
+>>>>>>> ca66df8b784417ee9d231c9ac8283558e1f1c809
                         System.out.printf("Luong trung binh: %.2f\n", avg);
                         System.out.println("Luong cao nhat:" + max);
                         System.out.println("Luong thap nhat:" + min);
                     }
                     break;
                 case 3:
+<<<<<<< HEAD
                     System.out.printf("Tong tien thuong cho nhan vien: %.2f\n" , totalBonus);
+=======
+                    if (salaries.isEmpty()) {
+                        System.out.println("Chua co du lieu");
+                    } else {
+                        for (double s : salaries) {
+                            double bonus;
+                            if (s < 5) bonus = s * 0.05f;
+                            else if (s < 15) bonus = s * 0.1f;
+                            else if (s < 50) bonus = s * 0.15f;
+                            else if (s < 100) bonus = s * 0.2f;
+                            else bonus = s * 0.25f;
+                            totalBonus += bonus;
+                        }
+                        System.out.printf("Tong tien thuong cho nhan vien: %.2f\n", totalBonus);
+                    }
+>>>>>>> ca66df8b784417ee9d231c9ac8283558e1f1c809
                     break;
                 case 4:
                     System.out.println("Ket thuc chuong trinh");
